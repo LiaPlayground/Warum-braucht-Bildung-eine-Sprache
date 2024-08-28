@@ -96,10 +96,12 @@ Wie schon zuvor erwähnt, weil die technischen Fähigkeiten fehlen und zweitens,
 
 ***Aber genau darum geht es bei der Erstellung von OER: Vielfältigkeit, Veränderbarkeit und kontinuierliche Verbesserung ...***
 
-> __Vorsicht Spoiler:__ Das folgende Video zeigt, wie an der TU-Bergakademie in Freiberg interaktive Lehrinhalte mit LiaScript erstellt und auf GitHub gehostet (zu beiden kommen wir noch).
+> __Vorsicht Spoiler:__ Das folgende Video zeigt, wie an der [TU-Bergakademie in Freiberg](https://tu-freiberg.de) interaktive Lehrinhalte mit LiaScript erstellt und auf [GitHub](https://github.com/TUBAF-IfI-LiaScript) gehostet (zu beiden kommen wir noch).
 > Jeder Punkt stellt eine Datei dar und jedes Männchen eine Person, die eine Datei verändert, hinzufügt oder löscht; das sind einerseits Mitarbeiter der Arbeitsgruppe Softwareentwicklung und Robotik und andererseits Studenten.
 >
 > !?[Zusammenarbeit bei der Erstellung von OER and der TUBAF](./video/tubaf.mp4)
+>
+> Quelle: https://github.com/TUBAF-IfI-LiaScript/
 
 Wenn wir uns an der Open-Source-Bewegung orientieren, dann könnte OER doch eigentlich funktionieren, oder?
 Viele zuerst kleine Projekte, die mit der Zeit und durch eine organisierte und dezentrale Teilhabe vieler über Jahre hinweg wachsen.
