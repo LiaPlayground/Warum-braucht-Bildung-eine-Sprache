@@ -63,7 +63,6 @@ if (embed) {
 
 # Warum offene Bildung eine gemeinsame Sprache braucht!?
 
-     {{0-1}}
 — André Dietrich und Sebastian Zug —
 ------------------------------------
 
@@ -100,7 +99,7 @@ Wie schon zuvor erwähnt, weil die technischen Fähigkeiten fehlen und zweitens,
 > __Vorsicht Spoiler:__ Das folgende Video zeigt, wie an der TU-Bergakademie in Freiberg interaktive Lehrinhalte mit LiaScript erstellt und auf GitHub gehostet (zu beiden kommen wir noch).
 > Jeder Punkt stellt eine Datei dar und jedes Männchen eine Person, die eine Datei verändert, hinzufügt oder löscht; das sind einerseits Mitarbeiter der Arbeitsgruppe Softwareentwicklung und Robotik und andererseits Studenten.
 >
-> !?[Zusammenarbeit bei der Erstellung von OER and der TUBAF](https://private-user-images.githubusercontent.com/10922356/293702414-00a24602-dc63-4b9a-894b-80967b914513.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ3NDEwODcsIm5iZiI6MTcyNDc0MDc4NywicGF0aCI6Ii8xMDkyMjM1Ni8yOTM3MDI0MTQtMDBhMjQ2MDItZGM2My00YjlhLTg5NGItODA5NjdiOTE0NTEzLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI3VDA2Mzk0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTg5MTQxNGY1N2YyYzdkMGZlNmVlZDQ2MWY2Y2M1MjJmZDUxMzAxNzliOTk1ZmVmNDhiMGJhZWE4OGRkYjBiZDgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.zYFR9tANQF50tj00aF8fwzSxjTYpROqYA0Gxqsm2Q98)
+> !?[Zusammenarbeit bei der Erstellung von OER and der TUBAF](./video/tubaf.mp4)
 
 Wenn wir uns an der Open-Source-Bewegung orientieren, dann könnte OER doch eigentlich funktionieren, oder?
 Viele zuerst kleine Projekte, die mit der Zeit und durch eine organisierte und dezentrale Teilhabe vieler über Jahre hinweg wachsen.
@@ -116,7 +115,7 @@ Sie profitieren selbst davon.
 Stellen wir uns vor, große Bildungsverlage in Deutschland würden ihre Inhalte unter einer freien Lizenz als OER/OS-Projekt ins Netz stellen, sodass viele Lehrende und Lernende gemeinsam an den Materialien arbeiten könnten oder ihre eigenen Versionen daraus stricken.
 **Undenkbar!** Und warum ist das so?
 
-![Lizensen](img/lizens2.webp)
+![Lizensen](img/schulbuchverlag.jpg)
 
 Weil Open-Source-Projekte etwas haben, das OER (noch) nicht hat: eine gemeinsame (Programmier-)Sprache.
 Eine Sprache, in der sich Communitys um kleine oder riesige Projekte entwickeln, sei es das Linux-Betriebssystem, der Firefox-Browser, KI-Projekte oder Bildungsapps.
@@ -124,18 +123,14 @@ Eine Sprache, in der sich Communitys um kleine oder riesige Projekte entwickeln,
 ![Turm zu Babel](https://raw.githubusercontent.com/LiaPlayground/Transforming-Education/main/img/babel.webp)
 
 Neben der Sprache gibt es noch eine weitere Zutat, die es erlaubt, die Arbeit unzähliger Autoren zu organisieren, zu versionieren und zu orchestrieren.
-Hierzu wird ein dezentrales Versionsverwaltungstool genutzt, das `git` heißt, mit GitHub.com als größter Plattform.
+Hierzu wird ein dezentrales Versionsverwaltungstool genutzt, das [`git`](https://de.wikipedia.org/wiki/Git) heißt, mit [GitHub.com](https://github.com) als größter Plattform.
 Reviewsysteme, Diskussionen, automatisierte Tests (Rechtschreibung) und vieles mehr sind hier bereits integriert.
-Diese Probleme gelten hier als gelöst und sind für die meisten Entwickler nichts Neues seit über einem Jahrzehnt.
+Diese Probleme gelten hier als gelöst und sind für die meisten Entwickler nichts Neues und das seit über einem Jahrzehnt.
 
 Was hat die E-Learning-Community oder edTech dem entgegenzusetzen? Richtig, eine schier nicht enden wollende Anzahl an Plattformen, Tools und Formaten, die uns mehr und mehr auseinandertreiben und isolieren, als zusammenzubringen.
 Wer weiß schon, dass auf Moodle XY, welches an der Schule ABC in Weißenfels gehostet wird, ein Lehrer einen ähnlichen Kurs entwickelt wie ich ...
 
-> Fun Fact: Git entstammt ebenfalls der Feder von Linus Torwald, dem Entwickler von Linux.
-> Dieser war mit den damaligen kommerziellen Werkzeugen zur Versionsverwaltung unzufrieden und hat einen Weg gesucht, an Linux auch dezentral und offline arbeiten zu können.
-> Hier geht es zu einer kurzen Geschichte zu git:
->
-> https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git
+![2021 Global Learning Landscape](https://raw.githubusercontent.com/LiaPlayground/Transforming-Education/main/img/islands.png)
 
 Wir werden uns in den folgenden Abschnitten mit der Sprache LiaScript beschäftigen.
 Zu git und GitHub existieren bereits viele gute Tutorials und Kurse.
@@ -145,6 +140,12 @@ Glaubt uns, es lohnt sich.
 !?[YouTube: GitHub Beginner Tutorial in 20 Minuten](https://www.youtube.com/watch?v=0jzjz4MZ4ZU)
 
 Im Gegensatz zu allen anderen Plattformen die ihr vielleicht schon ausprobiert habt, wird GitHub die letzte sein, die ihr nutzen werdet.
+
+> Fun Fact: Git entstammt ebenfalls der Feder von Linus Torwald, dem Entwickler von Linux.
+> Dieser war mit den damaligen kommerziellen Werkzeugen zur Versionsverwaltung unzufrieden und hat einen Weg gesucht, an Linux auch dezentral und offline arbeiten zu können.
+> Hier geht es zu einer kurzen Geschichte zu git:
+>
+> https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git
 
 ## LiaScript – Eine Sprache für OER
 
