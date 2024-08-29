@@ -56,7 +56,7 @@ if (embed=="preview" || embed=="edit") {
   embed = ""
 }
 
-'HTML: ' + '<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
+'<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
 </script>
 @end
 
@@ -88,7 +88,7 @@ Partizipation, wie wir sie uns wünschen und wie wir sie aus der Open-Source-Wel
 Zynisch betrachtet ist die PDF-Datei die Steintafel des digitalen Zeitalters, statisch und optimal für Printmedien (jedoch nicht zum Lesen auf einem Smartphone geeignet), nicht interaktiv und nur schwer veränderbar.
 Ein Computer versetzt uns jedoch in die Lage zu experimentieren, simulieren, in Inhalte einzutauchen, etwas zu verändern und zu überprüfen.
 
-![Steintafel](https://raw.githubusercontent.com/LiaPlayground/Transforming-Education/main/img/history.webp)
+![Steintafel](img/history.jpg)
 
 Warum kann man als OER-Enthusiast also nicht einfach zwei Zeilen in einer App verändern oder diese übersetzen?
 Oder warum kann kein Nutzer (Schüler/Studenten/Eltern) Quizfragen umformulieren oder sogar Inhalt umstrukturieren?
@@ -123,7 +123,7 @@ Stellen wir uns vor, große Bildungsverlage in Deutschland würden ihre Inhalte 
 Weil Open-Source-Projekte etwas haben, das OER (noch) nicht hat: eine gemeinsame (Programmier-)Sprache.
 Eine Sprache, in der sich Communitys um kleine oder riesige Projekte entwickeln, sei es das Linux-Betriebssystem, der Firefox-Browser, KI-Projekte oder Bildungsapps.
 
-![Turm zu Babel](https://raw.githubusercontent.com/LiaPlayground/Transforming-Education/main/img/babel.webp)
+![Turm zu Babel](img/babel.jpg)
 
 Neben der Sprache gibt es noch eine weitere Zutat, die es erlaubt, die Arbeit unzähliger Autoren zu organisieren, zu versionieren und zu orchestrieren.
 Hierzu wird ein dezentrales Versionsverwaltungstool genutzt, das [`git`](https://de.wikipedia.org/wiki/Git) heißt, mit [GitHub.com](https://github.com) als größter Plattform.
@@ -133,7 +133,7 @@ Diese Probleme gelten hier als gelöst und sind für die meisten Entwickler nich
 Was hat die E-Learning-Community oder edTech dem entgegenzusetzen? Richtig, eine schier nicht enden wollende Anzahl an Plattformen, Tools und Formaten, die uns mehr und mehr auseinandertreiben und isolieren, als zusammenzubringen.
 Wer weiß schon, dass auf Moodle XY, welches an der Schule ABC in Weißenfels gehostet wird, ein Lehrer einen ähnlichen Kurs entwickelt wie ich ...
 
-![2021 Global Learning Landscape](https://raw.githubusercontent.com/LiaPlayground/Transforming-Education/main/img/islands.png)
+![2021 Global Learning Landscape](img/islands.png)
 
 Wir werden uns in den folgenden Abschnitten mit der Sprache LiaScript beschäftigen.
 Zu git und GitHub existieren bereits viele gute Tutorials und Kurse.
