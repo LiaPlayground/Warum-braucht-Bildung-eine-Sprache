@@ -871,24 +871,36 @@ Sollte GitHub morgen offline gehen, so verfügen alle Beteiligten immer noch üb
 ## Dezentralisierung
 
 Zuletzt möchten wir noch klären, wie Kurse überhaupt geteilt werden, wenn sie dezentral gespeichert und entwickelt werden.
-Dafür wird lediglich die URL der reinen Textdatei benötigt, die entweder auf eine Version auf GitHub/GitLab verweist (kostenlos) oder von den OER-Content-Erstellern selbst gehostet wird:
+Dafür wird lediglich die URL der reinen Textdatei benötigt, die entweder auf eine Version auf GitHub/GitLab verweist (kostenlos) oder von den OER-Content-Erstellern selbst gehostet wird.
+Dieses "Dokument" ist zum Beispiel auf GitHub im folgenden Projekt zu finden:
 
+https://github.com/LiaPlayground/Warum-offene-Bildung-eine-Sprache-braucht
 
+Um auf die reine Markdown-Datei zuzugreifen, klickt man entweder auf die entsprechende Datei und dann auf den kleinen Button "Raw" und erhält die folgende URL:
 
-Beispiel-URL für den Kurs: `https://liascript.github.io/course/?HTTPS://URL-ZUM-KURS.md`
+https://raw.githubusercontent.com/LiaPlayground/Warum-offene-Bildung-eine-Sprache-braucht/main/README.md
 
-Die LiaScript-Webseite ist eine sogenannte [PWA (Progressive Web App)](https://de.wikipedia.org/wiki/Progressive_Web_App), eine reine JavaScript-Applikation, die auch auf dem Endgerät installiert werden kann.
-Durch den URL-Parameter wird die App angewiesen, die Markdown-Datei, die sich hinter der URL befindet, lokal im Browser des Benutzers herunterzuladen, zu analysieren und live anzuzeigen (zu rendern).
+Wer ganz genau hinsieht, wird feststellen, dass die URL von `github.com` auf `raw.githubusercontent.com` geändert wurde und das zusätzliche `/main/README.md`-Suffix hinzugefügt wurde.
+Das bedeutet, der main-Branch (Hauptzweig) des Projekts wird genutzt und die Datei `README.md` wird heruntergeladen.
+Wie bereits erwähnt, auf GitHub könnte man so auch auf andere Versions-Zweige oder frühere Versionen zugreifen.
+Was jetzt noch fehlt ist, dass diese URL als Parameter an die LiaScript-Webseite übergeben wird.
+
+https://liascript.github.io/course/?https://raw.githubusercontent.com/LiaPlayground/Warum-offene-Bildung-eine-Sprache-braucht/main/README.md
+
+Das sieht im ersten Moment vielleicht umständlich aus, hat aber den Vorteil, dass wir unsere Inhalte jederzeit verändern und anpassen können, ohne dass die URL sich ändert.
+Die LiaScript-Webseite ist eine sogenannte [PWA (Progressive Web-App)](https://de.wikipedia.org/wiki/Progressive_Web_App), eine reine JavaScript-Applikation, die auch auf dem Endgerät installiert werden kann.
+Durch den URL-Parameter wird die App angewiesen, die Markdown-Datei, die sich hinter der URL befindet, lokal im Browser des Benutzers herunterzuladen, zu analysieren und darzustellen (zu rendern).
 Das erste Laden kann etwas länger dauern, da zunächst die gesamte Struktur analysiert wird.
-Das Ergebnis wird im Browser selbst in IndexedDB gespeichert, sodass auch offline darauf zugegriffen werden kann.
+Das Ergebnis wird im Browser selbst in der internen Datenbank IndexedDB gespeichert, sodass auch offline darauf zugegriffen werden kann.
 Klickt man im Inhaltsverzeichnis auf Homescreen, so wechselt man auf die folgende Index-Darstellung:
 
 https://liascript.github.io/course/
 
 Hier kann jeder besuchte Kurs wieder aufgerufen und im Stoff fortgefahren werden.
 Die LiaScript-Seite ist also eher ein Reader/Interpreter für LiaScript-Markdown als eine klassische Webseite.
-Die Kursinhalte können weiter aktualisiert werden, und der Reader prüft nur beim neuen Laden, ob sich die Version geändert hat oder nicht.
-Wir aktualisieren die Website/Interpreter und ihr aktualisiert den Inhalt.
+Wir aktualisieren die Website/Interpreter und ihr aktualisiert eure Inhalte.
+
+#### Klassenräume
 
 Zusätzlich könnt ihr innerhalb eines Kurses auf "Klassenraum teilen" gehen, eine von mehreren Lösungen zur Synchronisierung auswählen, einen zufälligen Namen für den Klassenraum wählen und dann auf "Öffnen" klicken.
 Die neue URL im Browser könnt ihr mit euren Schülern, Studenten oder Kommilitonen teilen, die dann denselben Raum betreten.
@@ -907,3 +919,32 @@ Dieses Konzept nennen wir Classroom-Lite ...
 
 Wir hoffen, wir konnten euch überzeugen und wer sich jetzt von den vielen Funktionen erschlagen fühlt und sich fragt, wo beginne ich, wie kann ich einen Kurs erstellen und teilen.
 
+Als Einstiegspunkt empfiehlt sich die LiaScript-Webseite, die wir kostenlos auf GitHub hosten:
+
+https://liascript.github.io
+
+Hier findet ihr weitere Informationen und auch die Dokumentation, die ebenfalls als LiaScript-Kurs verfasst wurde, sowie Anregungen und Neuigkeiten in unserem Blog.
+Daneben haben wir noch einen YouTube-Kanal, auf dem wir regelmäßig neue Funktionen und Anwendungsbeispiele vorstellen:
+
+https://www.youtube.com/@liascript4180
+
+Wer sich direkt in die Tiefe stürzen will, dem empfehlen wir, sich neben den [Shorts](https://www.youtube.com/watch?v=saxAFw7XpjI&list=PL7LrRfaZulhch1ZtC6nSWOPcu1Xm80rlf) auch die in LiaScript übersetzte und aufgezeichnete interaktive Dokumentation anzusehen:
+
+https://www.youtube.com/watch?v=ElxYssylmaw&list=PL7LrRfaZulhc3w4rebIl8Dnck6zqdKeNn
+
+Das gesamte Projekt ist auf GitHub gehostet:
+
+https://github.com/LiaScript
+
+Ihr könnt uns dort gerne Feedback geben, Fehler melden oder auch eigene Erweiterungen einbringen.
+Für schnelle Antworten und Diskussionen haben wir auch einen Chat auf Gitter:
+
+https://app.gitter.im/#/room/#LiaScript_community:gitter.im
+
+... oder schreibt uns einfach eine E-Mail an:
+
+LiaScript@web.de
+
+oder folgt und kontaktiert uns auf Twitter/X:
+
+https://twitter.com/LiaScript
