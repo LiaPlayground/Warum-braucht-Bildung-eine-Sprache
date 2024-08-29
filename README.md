@@ -4,7 +4,10 @@ language: de
 
 narrator: Deutsch Male
 
-@embed: @embedWithStyle(height: 80vh; min-width: 100%; border: 1px black solid,```@0```)
+@embed
+@embedWithStyle(height: 80vh; min-width: 100%; border: 1px black solid,````@0
+````)
+@end
 
 @embedWithStyle
 <script run-once modify="false">
@@ -339,7 +342,15 @@ Das interne Vorgehen von LiaScript haben wir im folgenden Blog-Beitrag etwas nä
 Beim Programmierenlernen sind viele Code-Beispiele unerlässlich.
 Auch hierfür existiert in Markdown bereits eine Syntax, sogenannte Code-Blöcke, die mit mindestens drei Backticks umrandet sind.
 
-<iframe loading="lazy" style="height: 380px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA1NWcM3MU0jNzEtLTM5ILVbwSixLDE4uyiwo0XVKzSwuyEzN4eJKSEjIAooXg8W5yhKLFCoUbBXUPRJzcvIVwlNzStS5kvPzivNzUvVy8tM1KjS5jI0VtBQMjUA6AdqnGkJiAAAA"></iframe>
+```` markdown @embedWithStyle(height: 380px; min-width: 100%; border: 1px black solid)
+# Ein einfaches JavaScript-Beispiel
+
+```javascript
+var x = 'Hallo Welt'
+console.log(x)
+33 * 12
+```
+````
 
 Der oberste Begriff ist ein Indikator für die Programmiersprache und das zu verwendende Syntax-Hervorhebung, gefolgt vom eigentlichen Code.
 Ursprünglich nutzten wir einen separaten Editor für unsere Roboterprojekte, wodurch Studenten gezwungen waren, Code ständig hin und her zu kopieren.
@@ -351,7 +362,16 @@ Unsere Arduino-Roboter wurden in C++ programmiert, was die Fragen aufwarf:
 Unsere Lösung war das Anhängen eines `<script>`-tags, das definiert, wie der obere Code oder Text interpretiert werden soll.
 Für JavaScript gestaltet sich dies relativ einfach:
 
-<iframe loading="lazy" style="height: 380px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA1NWcM3MU0jNzEtLTM5ILVbwSixLDE4uyiwo0XVKzSwuyEzN4eJKSEjIAooXg8W5yhKLFCoUbBXUPRJzcvIVwlNzStS5kvPzivNzUvVy8tM1KjS5jI0VtBQMjUA6uWwg+uwUHDLzCkpLFGz0oQIAscE1kXwAAAA="></iframe>
+```` markdown @embedWithStyle(height: 380px; min-width: 100%; border: 1px black solid)
+# Ein einfaches JavaScript-Beispiel
+
+```javascript
+var x = 'Hallo Welt'
+console.log(x)
+33 * 12
+```
+<script> @input </script>
+````
 
 Jeder Code-Block, an den ein `<script>`-tag angehängt wird, wird in LiaScript als ausführbarer Code mit Konsolenausgabe interpretiert.
 Klickt auf Ausführen und beobachtet, wie sich die Ausgabe ändert.
@@ -379,7 +399,34 @@ Diese werden einfach aneinandergefügt und ebenfalls ein zusätzliches `<script>
 Um mit den Blöcken nicht durcheinander zu kommen, muss angegeben werden, welcher Block wo einzusetzen ist.
 Dabei adressiert `@input(0)` den ersten Code-Block und `@input(1)` verweist auf die JSON-Datei, usw ...
 
-<iframe loading="lazy" style="height: 600px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA11RTU/DMAy951dY4dJqsMKVDcSBXThsSOVOzXDVdGkyJe4QQvx3nLR8iOaSvOf3/OyewcY4IONa3HcU4TH4ng6slGqaBvoI6bvYnNDW+2COvOyjssTw1nm4gVdkXLYmRH52OBAsQMtZTLjFGV4pZdoiY95Z46iEDwXZIglMhAnWK/WpyEb6T293T39LJNmczrsU7z45p4dKOv2bR8O1vGschnd9nqifSBomqsNwmKjZP88rFIeR5lbrmCe/laqqAuMiBQbuCB7q3TaPGmUhxrHPqPV7tHDCYPDFUuZFmXaWrrK0O+OOIxdXpewlW5JsN0unRnJFhjHK3+BOpp87SG0qLJpZf1k24rCuvtN9Abw0oQbKAQAA"></iframe>
+```` markdown @embedWithStyle(height: 600px; min-width: 100%; border: 1px black solid)
+# Ein einfaches Projekt
+
+``` js     -EvalScript.js
+let who = data.first_name + " " + data.last_name;
+
+if(data.online) {
+  who + " is online";
+}
+else {
+  who + " is NOT online";
+}
+```
+``` json    Data.json
+{
+  "first_name" :  "Sammy",
+  "last_name"  :  "Shark",
+  "online"     :  true
+}
+```
+<script>
+  // insert the JSON dataset into the local variable data
+  let data = @input(1);
+
+  // eval the script that uses this dataset
+  eval(`@input(0)`);
+</script>
+````
 
 Öffnet den oberen Teil, passt beide Code-Blöcke an und klickt auf "Execute".
 Ob ein Block geöffnet oder geschlossen ist, wird durch ein Plus- oder Minuszeichen vor dem Dateinamen definiert.
@@ -417,7 +464,32 @@ Natürlich will keiner immer alle Befehle hin und her kopieren.
 Wie man es von einer Bibliothek gewohnt ist, so können solche Makro-Sammlungen mithilfe einer `@import` Anweisung einfach in den aktuellen Kurs integriert werden.
 Im folgenden Beispiel wird ein anderes Dokument importiert, das es erlaubt, [ABC-Notationen](https://de.wikipedia.org/wiki/ABC_%28Musiknotation%29) zum Erstellen von musikalischen Notenblättern einzubetten.
 
-<iframe loading="lazy" style="height: 800px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA71T0W7TMBR991dcvJdUIslwKg1ZgEhtpxKsPKwDIZlU9VKLhCVOlbhDRfl47ER0wB7Yy3ix7HuPzznX9/rVszBEVbNvO0uhtHbf0zju1Pfoa2XLw82h113RGquNjYq2iS8rda2bfa2s7uN0wb718Xl0HpH4SqR8JaJmh8LwDUJnsDr01S1C2+0W1E0B8Nah362jTpud7tBnCi/QNYV1WZQajIZPje5qBR9vO3WszBFMBeta3annfnfX1kfl4T5dmUoZ+KBs1RpVQ2psqRvEKNhO7SJ0RaFRXVGiFQWGLp1O/BK9p5AhOXxBOMMyTbIkl2mWQ+BXuRTjaSYXyxwGkEWSurw/4PTCwUlGHIgIsmHEAzBvsMwId9Ex52BYTlkX+A3DE+6IxIblMOExwyORQ/xnJ3M+z4GTH8Qr34PECHLibBLPuBMXzN8Lpos8CXORzdzmD3ZBHjgYVziV+KtQGAudZ05/MvmUHh7dj8DL/PXeaKDTgEzP/nqxcVFZkPREPDwoL5CFGDuEN+lFzM7wxOeI//U4k6/gfgxGM15mhplr9oIsT3PyBIYeMy+Se6jrFx38P/4JIpBZQCsEAAA="></iframe>
+```` markdown @embedWithStyle(height: 800px; min-width: 100%; border: 1px black solid)
+<!--
+import: https://raw.githubusercontent.com/LiaTemplates/ABCjs/0.0.2/README.md
+-->
+
+# Musik
+
+``` abc  @ABCJS.render
+X: 1
+T: Shche ne Vmerla Ukrayiny ni Slava, ni volya
+T: Ukrainian National Anthem
+C: trad.
+R: march
+M: C
+L: 1/8
+K: F
+[|\
+"F"[A3F3][AF] ([AF][GE][AF])[BG] | [c3A3][BG] "A7"[A2F2][G2E2^C2] | "Dm"[F2D2][A2F2] "A"[E2^C2][A2C2] | "Dm"[D3D3][E^C] [F2D2]"C"[G2E2] |
+"F"[A3F3][AF] ([AF][GE][AF])[BG] | [c3A3][BG] "A7"[A2F2][G2E2^C2] | "Dm"[F2D2][A2F2] "A"[E2^C2][A2C2] | "Dm"[D4D4] D2z2 |
+"A"[E2^C2][E2C2] ([AC][GE][FD])[EC] | ("Dm"[DD3-]EF)[DD] "A"[E2^C2][E2C2] | "Dm"[F2D2][F2D2] "C"[G2E2][G2E2] | "F"[A4F4] [A2F2]z2 |
+"A"[E2^C2][E2C2] ([AC][GE][FD])[EC] | ("Dm"[DD3-]EF)[DD] "A"[E2^C2][E2C2] | "Dm"[F2D2][A2F2] "A"[E2^C2][A2C2] | "Dm"[D3D3][E^C] ([FD][GE][AF])[BG] |
+|:\
+"F"[c3A3][=B^G] [c2A2][A2F2] | "C"[G2E2][G2E2] ([cE][BG]"^A7/C#"[AF])[GE] | "Dm"[F2D2][F2D2] "C"[G2E2][G2C2] | ("F"[A3F3][GE][A2F2])"C7"[B2G2] |
+"F"[c3A3][=B^G] [c2A2][A2F2] | "C"[G2E2][G2E2] ([cE][BG]"^A7/C#"[AF])[GE] | "Dm"[F2D2][A2F2] "A"[E2^C2][A2C2] | "Dm"[D4D4] [D2D2]z2 :|
+```
+````
 
 Warum sollte man nicht auch mit Musik programmieren können?
 Noten sind eine Form von Programmiersprache, die es erlaubt, Musik zu komponieren.
@@ -426,12 +498,49 @@ Verändert den Code und klickt auf "Compile", um die Änderungen zu sehen und zu
 Wie bei im Abschnitt "[Programmieren in Markdown](#programmieren-in-markdown)" gezeigt, muss nur ein `<script>`-tag angehängt werden.
 Im unteren Beispiel geschieht dies automatisch, durch Anhängen des Macros `@ABCJS.eval`.
 
-<iframe style="height: 500px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA4WQQU+EMBCF7/MrRjx4gq5kD6YxxnZbTHS56B72ZOhCYVEKBIrGpPG3W9g9GC9eZl5e5nuTvNuLMITa9N1gKR6t7UdKyKA+o6q2x+kwjXrIu9bq1kZ5Z8i2Vjtt+kZZPRLGN28jWUWrKCbPkolURqaAMLwDuMR0Gut3gCzL1CGHPcVr2FHcdF2jv65GSCmuyRq23ic38ERRmroFR0XsAmkCyTlDHqPk7tsvxrHg7MEFIkgEE8j9cIsqWCIc/EHOhC6rmVClfs1nPlmihUwEypg6/60qF0vzGfTn2p1kpQs+oyzGhKFgCXMnuWTCL4ZX/Mz8+85XAfe+s8eXSH+o5gflG6SBegEAAA=="></iframe>
+````` markdown @embedWithStyle(height: 800px; min-width: 100%; border: 1px black solid)
+<!--
+import: https://raw.githubusercontent.com/LiaTemplates/ABCjs/0.0.2/README.md
+-->
+
+# Musik
+
+``` abc
+X: 1
+T: Cooleys
+M: 4/4
+L: 1/8
+K: Emin
+|:D2|"Em"EBBA B2 EB|~B2 AB dBAG|"D"FDAD BDAD|FDAD dAFD|
+"Em"EBBA B2 EB|B2 AB defg|"D"afe^c dBAF|"Em"DEFD E2:|
+|:gf|"Em"eB B2 efge|eB B2 gedB|"D"A2 FA DAFA|A2 FA defg|
+"Em"eB B2 eBgB|eB B2 defg|"D"afe^c dBAF|"Em"DEFD E2:|
+```
+@ABCJS.eval
+`````
 
 Text kann ebenfalls analysiert werden, um beispielsweise die Lesbarkeit oder den Stil zu verbessern.
 An der TU Freiberg wird dies zum Beispiel im Fremdsprachenunterricht eingesetzt, um mithilfe verschiedener Metriken Studierenden direkt Feedback zu geben:
 
-<iframe loading="lazy" style="height: 470px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA1VSTW/bMAy961dw2DW2710xrMBaoEA3DEN3D20zEVFaEiQqrv/9KAddsCPlx/fB5/tPXed4STHrHXjVVO6GIePan1l9HWuhPMWgFLSf4jII4ystSVCpDK/0rg8BZStchgU5DL8fH77/eOyX2XXdV+c+Q4PgDiHnjsej2ux+CW4cznDGhQp4LICy4lZgJAqgPtazV9BoM1ytYdhn9eRmupDEtJgjiCdYSaQbUTBMNAOGGaZMqHwhmDzLnCl8AR9X28oHWD2qS5j1AHwy9HZonBsU05QZLNcG3CwQiFGUpoBzFb3aDI1ld+kyFcI8eRNVI4WZKMnWw7N9Fjbc9Tn9F5ULNIYNRlbA4m7hTjF/CJlOmz7c9/AzWtIgW1tXfGt0ygtBrO0objd95V+tM3u+Le8HiRbnH/sFpeIotJ+3GsroHFvBOVEu0aqCTFYvx1A8J+vEVLg1VCIgrDHMlE9VwAprHAYmtHIbl0JNYL9KseW+te2+3frn0j/9eXn5C4jztlxwAgAA"></iframe>
+```` markdown @embedWithStyle(height: 470px; min-width: 100%; border: 1px black solid)
+<!--
+import: https://raw.githubusercontent.com/liaTemplates/TextAnalysis/main/README.md
+-->
+
+# Textanalyse
+
+```text
+Playing games has always been thought to be important to the
+development of well-balanced and creative children; however, what
+part, if any, they should play in the lives of adults has never been
+researched that deeply. I believe that playing games is every bit as
+important for adults as for children. Not only is taking time out to
+play games with our children and other adults valuable to building
+interpersonal relationships but is also a wonderful way to release
+built up tension.
+```
+@Textanalysis.FULL
+````
 
 Wie schon erwähnt, wir nutzen LiaScript zumeist zum Programmierenlernen, eine Übersicht über bereits existierende Erweiterungen findet sich hier:
 
@@ -439,7 +548,15 @@ https://github.com/topics/liascript-template
 
 Ansonsten freuen wir uns, wenn wir neue Erweiterungen für euch hinzufügen oder euch bei diesem Prozess in LiaScript unterstützen können.
 
-<iframe  loading="lazy" style="height: 680px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAAzWOsWrDMBBAd32FSpd0kLSHEFpohmKylJD9bF2rqy3J3J1rmu/Jn+THYkOzPd7y3u7JOUN5rKxbm1RH2YbAMPtv0jS1kyB3tSgW9V3NYSA4YR4HUJTwq33IIIocPg9v78eDz9E4tzfm2R4x0oUKSZfQNhML2vl2ZSwWpi7ZgqrGvJ5PjR8qxI8vhoybR78nnYHx/8FTXVPuR1wEBUGVsMIiKSSE6FoqwH/uMlDrF/lyB7OGZOvVAAAA"></iframe>
+```` markdown @embedWithStyle(height: 680px; min-width: 100%; border: 1px black solid)
+<!--
+import: https://raw.githubusercontent.com/liaTemplates/vtk/master/README.md
+-->
+
+# Medizinische Kurse wären auch nett
+
+@VTK.loadIframe(https://kitware.github.io/vtk-js-datasets/data/vti/head-binary-zlib.vti)
+````
 
 ### Weitere Features
 
@@ -468,13 +585,65 @@ Diese Kunstform, die auf den frühen Tagen der Computertechnologie zurückgeht, 
 In LiaScript kann ASCII-Art auf kreative Weise eingesetzt werden, um visuelle Darstellungen direkt in Texten zu integrieren.
 Dies kann besonders nützlich sein, um beispielsweise einfache Diagramme, Skizzen oder Symbole zu erstellen, ohne dass externe Bilddateien erforderlich sind.
 
-<iframe loading="lazy" style="height: 80vh; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/edit/H4sIAAAAAAAAA7VVy26DMBC88xVueugBGWwS8kBtJZpLc4mqhF7zUOM2SCipDEKN5I+vgRhs40S0ajeXMGbG491lfQvC5XQ2gyHNLOv+BkKQZqeEPPT2JP7YZwEYonzfAxA+WpvNZpu+xbEFusULIRSEXd9eEpoTChfkPSFfcU4KzIYi7K4yEd0e0s8jzUC421GSphxj9SrrKoMnnoMcz8E+CvoeRt7vZIBCK8PtJBO9LubXZNwVEwmuZKZJTA7ZXaqSqqRelHEB09w8H9NMyqFwowOKjAtaMk3u5WijZ9qah1s8qgXHyMH85wWDycjDZ0pTmaA/GI0rGRvapY8i2m2nVaD9zOZMsLUM6DLlRhdlQiZUxFl1PpO7SOPnLKogfkI8HDsYofLs/tj7iYzLPVpSIlvvS2ugzpoIuQISpxSZa4DYf61pKF8Kq3uZ5ZqTXFrTJXSRqr/5/8IaT3RtE7K6yyWwWaz64akUUaS5k5VpswY8x0p1oopEzFQJphdF/ULUChROmlWtcqrIlYHIDJuqpurt/4xpGzx2Y5pe+lemeT62mVW3KFTTzbQgyfZEdoqOcWgYLyQTZhgYzawLRgghDfMDHwlUgPym4gMDT3BxWX8DoO5Ei9sHAAA="></iframe>
+```` markdown @embed
+# ASCII-Art
+
+<!-- style="height: 60vh" -->
+```ascii
+                                       Peer A
+                                       Server-Reflexive    +---------+
+                                       Transport Address   |         |
+                                       192.0.2.150:32102   |         |
+                                           |              /|         |
+                         TURN              |             /^|  Peer A |
+   Client's              Server            |            / ||         |
+   Host Transport        Transport         |           /  ||         |
+   Address               Address           |      ____/   |+---------+
+  10.1.1.2:49721       192.0.2.15:3478     |+-+  /      Peer A
+           |               |               ||N| /       Host Transport
+           |   +-+         |               ||A|/        Address
+           |   | |         |               v|T|     92.168.100.2:49582
+           |   | |         |               /+-+
++---------+|   | |         |+---------+   /              +---------+
+|         ||   |N|         ||         | _/               |         |
+| TURN    |v   | |         v| TURN    |/                 |         |
+| Client  |----|A|----------| Server  |------------------|  Peer B |
+|         |    | |^         |         |^                ^|         |
+|         |    |T||         |         ||                ||         |
++---------+    | ||         +---------+|                |+---------+
+               | ||                    |                |
+               | ||                    |                |
+               +-+|                    |                |
+                  |                    |                |
+                  |                    |                |
+            Client's                   |            Peer B
+            Server-Reflexive    Relayed             Transport
+            Transport Address   Transport Address   Address
+            192.0.2.1:7000      192.0.2.15:50000     192.0.2.210:49191
+```
+````
 
 Natürlich können LiaScript und Markdown auch nahtlos mit ASCII-Grafiken kombiniert werden.
 Dadurch lassen sich interessante Kombinationen mit Quizzen generieren, aber auch Animationen.
 Die LiaScript-Elemente müssen nur mit Hochkommas "markiert" werden:
 
-<iframe style="height: 400px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/edit/H4sIAAAAAAAAA1NWcAx29vTUdSwqUVBTCCzNrKpK5eKyUdTVVUhJLEnULc7IL9ctSCwqyUzM0S3OzyktyczPU9DVteNKSEhQSCxOzszkUsAB9HSxAj1cGvRxCNegaoAbq43dfG0FhASqXQgLaiCUkkJ0tIKCkQmQGRsL5NUgVIBtxWYVdiYSG9l+kAMwbAUCQ0MFdFElkFMUDI2hbkFyCsgtBB1AmKmgzYXibQVTmFUIm8wwnAUC5kii+lzYg50kUVDiAQDkbDm0egIAAA=="></iframe>
+```` markdown @embedWithStyle(height: 420px; min-width: 100%; border: 1px black solid")
+# ASCII-Art & Quizze
+
+<!-- data-show-partial-solution -->
+``` ascii
+                        .----------------------.
+                       /                      /|
+             .--------+----------------------+ +---------.
+            /         |      " [[  24   ]] " |/         /|
+  .--------+----------+----------+-----------+---------+ +----------.
+ /         |         11          |      "[[   13   ]] "|/          /|
++----------+----------+----------+----------+----------+----------+ +
+|      " [[   5   ]] "|          6          |          7          |/
++---------------------+---------------------+---------------------+
+```
+````
+
 
 #### Automatische Visualisierungen
 
