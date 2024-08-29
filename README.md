@@ -1,27 +1,46 @@
 <!--
 
+author:  André Dietrich; Sebastian Zug
+email:   LiaScript@web.de
+version: 0.0.1
+
 language: de
 
 narrator: Deutsch Male
 
-@embed
-@embedWithStyle(height: 80vh; min-width: 100%; border: 1px black solid,````@0
+@embed.edit
+@embed_(edit,height: 80vh; min-width: 100%; border: 1px black solid,````@0
 ````)
 @end
 
-@embedWithStyle
-<script run-once modify="false">
-let code = `@'1`
-
-code = btoa(unescape(encodeURIComponent(code)))
-
-'HTML: ' + '<iframe loading="lazy" style="@0" src="https://liascript.github.io/LiveEditor/?/embed/code/' + code + '"></iframe>'
-</script>
+@embed.edit.style
+@embed_(edit,@0,````@1
+````)
 @end
 
-@embed.preview: @embed_(preview,height: 80vh; min-width: 100%; border: 1px black solid,```@0```)
+@embed.preview
+@embed_(preview,height: 80vh; min-width: 100%; border: 1px black solid,````@0
+````)
+@end
 
-@embed.edit: @embed_(edit,height: 80vh; min-width: 100%; border: 1px black solid,```@0```)
+
+@embed.preview.style
+@embed_(preview,@0,````@1
+````)
+@end
+
+
+@embed
+@embed_(none,height: 80vh; min-width: 100%; border: 1px black solid,````@0
+````)
+@end
+
+
+@embed.style
+@embed_( ,@0,````@1
+````)
+@end
+
 
 @embed_
 <script run-once modify="false">
@@ -31,35 +50,14 @@ code = btoa(unescape(encodeURIComponent(code)))
 
 let embed ="@0"
 
-if (embed) {
+if (embed=="preview" || embed=="edit") {
   embed += "/"
+} else {
+  embed = ""
 }
 
 'HTML: ' + '<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
 </script>
-@end
-
-
-
-
-@style
-.flex-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows the items to wrap as needed */
-    align-items: stretch;
-    gap: 20px; /* Adds both horizontal and vertical spacing between items */
-}
-
-.flex-child { 
-    flex: 1;
-}
-
-@media (max-width: 400px) {
-    .flex-child {
-        flex: 100%; /* Makes the child divs take up the full width on slim devices */
-        margin-right: 0; /* Removes the right margin */
-    }
-}
 @end
 
 -->
@@ -167,7 +165,7 @@ Markdown ist mittlerweile der Standard für Blogging ([JAM-Stack](https://jamsta
 
 Versuch mal die folgende Nachricht über WhatsApp zu verschicken:
 
-```markdown @embedWithStyle(height: 420px; min-width: 100%; border: 1px black solid)
+```markdown @embed.style(height: 420px; min-width: 100%; border: 1px black solid)
 # Einkaufsliste
 
 > Für eine Pizza Margarita benötigen wir
@@ -181,7 +179,7 @@ Versuch mal die folgende Nachricht über WhatsApp zu verschicken:
 Mithilfe solcher Annotationen ermöglicht Markdown einfache Formatierungen wie Code, Kursiv, Fett und Durchgestrichen in Texten zu verwenden und diese können auch miteinander kombiniert/verschachtelt werden.
 Texte lassen sich ähnlich einfach strukturieren:
 
-```markdown @embedWithStyle(height: 510px; min-width: 100%; border: 1px black solid)
+```markdown @embed.style(height: 510px; min-width: 100%; border: 1px black solid)
 # Überschrift
 
 Ein Absatz kommt selten
@@ -213,7 +211,7 @@ Wir wollten die visuelle und einfache Sprache von Markdown erweitern und mehr in
 
 Das folgende Beispiel zeigt eine einfache "To-do"-Liste:
 
-```markdown @embedWithStyle(height: 510px; min-width: 100%; border: 1px black solid)
+```markdown @embed.style(height: 350px; min-width: 100%; border: 1px black solid)
 # To-do
 
 - [x] Bereits getan
@@ -224,7 +222,7 @@ Das folgende Beispiel zeigt eine einfache "To-do"-Liste:
 Wir haben diese To-do-Listen, wie unten dargestellt, einfach weiter entwickelt, um auch Quizze und Umfragen in unsere Lehrmaterialien einzubinden.
 Die Didaktiker konnten so Feedback von den Studenten einholen bzw. den Fortschritt beobachten.
 
-```markdown @embedWithStyle(height: 510px; min-width: 100%; border: 1px black solid)
+```markdown @embed.style(height: 410px; min-width: 100%; border: 1px black solid)
 # Multiple-Choice-Quiz
 
 Kann ein Quiz noch einfacher sein?
@@ -237,7 +235,7 @@ Kann ein Quiz noch einfacher sein?
 Die obere eckige Darstellung erinnert an Check-Boxen, wie sie in HTML verwendet werden, erinnert.
 Für Single-Choice-Quizze würde man runde Radio-Buttons verwenden, wobei man nur eine Option auswählen kann:
 
-```markdown @embedWithStyle(height: 510px; min-width: 100%; border: 1px black solid)
+```markdown @embed.style(height: 410px; min-width: 100%; border: 1px black solid)
 # Single-Choice-Quiz
 
 Radio-Buttons mit Klammern darzustellen wirkt doch logisch?
@@ -252,7 +250,7 @@ Radio-Buttons mit Klammern darzustellen wirkt doch logisch?
 Spinnt man diese Idee weiter, indem man doppelte Klammern `[[...]]` für Quizze verwendet, so lassen sich in Kombination mit anderen Markdown-Elementen noch eine Vielzahl weiterer Quizze in Form von Lückentexten, Auswahl-Optionen, Matrix-Quizzen usw. erstellen.
 Hier ein Beispiel für einen "German Grammar Test":
 
-```markdown @embed.preview
+```markdown @embed.preview.style(height: 730px; min-width: 100%; border: 1px black solid)
 # German Grammar Test
 
 | Verb    | Person    | Präsens von "werden" |    Partizip II   | Infinitiv von haben/sein |
@@ -272,7 +270,7 @@ LiaScript bietet noch weitere Möglichkeiten, um Hilfestellungen zu geben oder z
 
 Für Umfragen (Lückentexte sind hier ausgenommen) verwendeten wir die gleiche Syntax, hier wird das Ergebnis jedoch nicht mit `X` das richtige Ergebnis vordefiniert, sondern Optionen vorgegeben, unter denen die Auswahl gespeichert werden soll:
 
-```markdown @embed
+```markdown @embed.style(height: 410px; min-width: 100%; border: 1px black solid)
 # Was sind eure Lieblingsfarben?
 
 - [[rot]]     Ist es rot,
@@ -292,7 +290,7 @@ YouTube bietet eine Vielzahl von Lehrmaterialien, die aber nicht direkt in Markd
 Um ebenfalls solche Inhalte nutzen zu können und in LiaScript-Kurse einzubinden, haben wir wie zuvor die Syntax erweitert.
 Das folgende Beispiel zeigt zunächst die allgemeine Syntax Markdown, um Verweise und Bilder einzubinden; danach kommen die LiaScript Erweiterungen:
 
-``` markdown @embed
+``` markdown @embed.style(height: 710px; min-width: 100%; border: 1px black solid)
 # Multimedia-Verweise
 
 - __Markdown__
@@ -342,7 +340,7 @@ Das interne Vorgehen von LiaScript haben wir im folgenden Blog-Beitrag etwas nä
 Beim Programmierenlernen sind viele Code-Beispiele unerlässlich.
 Auch hierfür existiert in Markdown bereits eine Syntax, sogenannte Code-Blöcke, die mit mindestens drei Backticks umrandet sind.
 
-```` markdown @embedWithStyle(height: 380px; min-width: 100%; border: 1px black solid)
+```` markdown @embed.style(height: 380px; min-width: 100%; border: 1px black solid)
 # Ein einfaches JavaScript-Beispiel
 
 ```javascript
@@ -362,8 +360,8 @@ Unsere Arduino-Roboter wurden in C++ programmiert, was die Fragen aufwarf:
 Unsere Lösung war das Anhängen eines `<script>`-tags, das definiert, wie der obere Code oder Text interpretiert werden soll.
 Für JavaScript gestaltet sich dies relativ einfach:
 
-```` markdown @embedWithStyle(height: 380px; min-width: 100%; border: 1px black solid)
-# Ein einfaches JavaScript-Beispiel
+```` markdown @embed.style(height: 380px; min-width: 100%; border: 1px black solid)
+# Ein interaktives JavaScript-Beispiel
 
 ```javascript
 var x = 'Hallo Welt'
@@ -399,7 +397,7 @@ Diese werden einfach aneinandergefügt und ebenfalls ein zusätzliches `<script>
 Um mit den Blöcken nicht durcheinander zu kommen, muss angegeben werden, welcher Block wo einzusetzen ist.
 Dabei adressiert `@input(0)` den ersten Code-Block und `@input(1)` verweist auf die JSON-Datei, usw ...
 
-```` markdown @embedWithStyle(height: 600px; min-width: 100%; border: 1px black solid)
+```` markdown @embed.style(height: 600px; min-width: 100%; border: 1px black solid)
 # Ein einfaches Projekt
 
 ``` js     -EvalScript.js
@@ -443,7 +441,7 @@ Makros sind eine hervorragende Möglichkeit, wiederkehrende Aufgaben zu vereinfa
 Kurz gesagt handelt es sich hierbei nur um Text-Ersetzungen, die an beliebigen Stellen eingefügt werden können.
 Hierfür wird einfach in einem HTML-Kommentar zu Beginn des Dokuments ein Befehl/Name definiert, gefolgt von allem, was eingefügt werden soll:
 
-``` markdown @embedWithStyle(height: 280px; min-width: 100%; border: 1px black solid)
+``` markdown @embed.style(height: 280px; min-width: 100%; border: 1px black solid)
 <!--
 @Befehl: Hier wird ein ganzer __Text__ eingefügt.
 -->
@@ -464,7 +462,7 @@ Natürlich will keiner immer alle Befehle hin und her kopieren.
 Wie man es von einer Bibliothek gewohnt ist, so können solche Makro-Sammlungen mithilfe einer `@import` Anweisung einfach in den aktuellen Kurs integriert werden.
 Im folgenden Beispiel wird ein anderes Dokument importiert, das es erlaubt, [ABC-Notationen](https://de.wikipedia.org/wiki/ABC_%28Musiknotation%29) zum Erstellen von musikalischen Notenblättern einzubetten.
 
-```` markdown @embedWithStyle(height: 800px; min-width: 100%; border: 1px black solid)
+```` markdown @embed.edit.style(height: 800px; min-width: 100%; border: 1px black solid)
 <!--
 import: https://raw.githubusercontent.com/LiaTemplates/ABCjs/0.0.2/README.md
 -->
@@ -498,7 +496,7 @@ Verändert den Code und klickt auf "Compile", um die Änderungen zu sehen und zu
 Wie bei im Abschnitt "[Programmieren in Markdown](#programmieren-in-markdown)" gezeigt, muss nur ein `<script>`-tag angehängt werden.
 Im unteren Beispiel geschieht dies automatisch, durch Anhängen des Macros `@ABCJS.eval`.
 
-````` markdown @embedWithStyle(height: 800px; min-width: 100%; border: 1px black solid)
+````` markdown @embed.style(height: 700px; min-width: 100%; border: 1px black solid)
 <!--
 import: https://raw.githubusercontent.com/LiaTemplates/ABCjs/0.0.2/README.md
 -->
@@ -522,7 +520,7 @@ K: Emin
 Text kann ebenfalls analysiert werden, um beispielsweise die Lesbarkeit oder den Stil zu verbessern.
 An der TU Freiberg wird dies zum Beispiel im Fremdsprachenunterricht eingesetzt, um mithilfe verschiedener Metriken Studierenden direkt Feedback zu geben:
 
-```` markdown @embedWithStyle(height: 470px; min-width: 100%; border: 1px black solid)
+```` markdown @embed.style(height: 570px; min-width: 100%; border: 1px black solid)
 <!--
 import: https://raw.githubusercontent.com/liaTemplates/TextAnalysis/main/README.md
 -->
@@ -530,14 +528,16 @@ import: https://raw.githubusercontent.com/liaTemplates/TextAnalysis/main/README.
 # Textanalyse
 
 ```text
-Playing games has always been thought to be important to the
-development of well-balanced and creative children; however, what
-part, if any, they should play in the lives of adults has never been
-researched that deeply. I believe that playing games is every bit as
-important for adults as for children. Not only is taking time out to
-play games with our children and other adults valuable to building
-interpersonal relationships but is also a wonderful way to release
-built up tension.
+Playing games has always been thought to be
+important to the development of well-balanced and
+creative children; however, what part, if any,
+they should play in the lives of adults has never
+been researched that deeply. I believe that playing
+games is every bit as important for adults as for
+children. Not only is taking time out to play games
+with our children and other adults valuable to
+building interpersonal relationships but is also a
+wonderful way to release built up tension.
 ```
 @Textanalysis.FULL
 ````
@@ -548,7 +548,7 @@ https://github.com/topics/liascript-template
 
 Ansonsten freuen wir uns, wenn wir neue Erweiterungen für euch hinzufügen oder euch bei diesem Prozess in LiaScript unterstützen können.
 
-```` markdown @embedWithStyle(height: 680px; min-width: 100%; border: 1px black solid)
+```` markdown @embed.preview.style(height: 680px; min-width: 100%; border: 1px black solid)
 <!--
 import: https://raw.githubusercontent.com/liaTemplates/vtk/master/README.md
 -->
@@ -556,6 +556,35 @@ import: https://raw.githubusercontent.com/liaTemplates/vtk/master/README.md
 # Medizinische Kurse wären auch nett
 
 @VTK.loadIframe(https://kitware.github.io/vtk-js-datasets/data/vti/head-binary-zlib.vti)
+````
+
+Und für wissenschaftliches Publizieren gibt es auch Erweiterungen, die ihr nutzen könnt:
+
+```` markdown @embed.preview.style(height: 680px; min-width: 100%; border: 1px black solid)
+<!--
+import: import: https://raw.githubusercontent.com/LiaTemplates/citations/main/README.md
+-->
+
+# Literatur
+
+```bibtex @bibliography.style(ieee)
+@InProceedings{dietrich2019,
+  author    = {André Dietrich},
+  title     = {LiaScript: a domain-specific-language for interactive online courses},
+  booktitle = {Proceedings of the International Conference on e-Learning 2019},
+  year      = {2019},
+  pages     = {186--194},
+  address   = {Porto, Portugal}
+}
+
+@misc{liascript2024,
+  author       = {André Dietrich; Sebastian Zug},
+  title        = {LiaScript - Open Educational Resources made Easy and Decentralized ...},
+  howpublished = {\\url{https://liascript.github.io}},
+  year         = {2024},
+  note         = {Accessed: August 29, 2024}
+}
+```
 ````
 
 ### Weitere Features
@@ -585,7 +614,7 @@ Diese Kunstform, die auf den frühen Tagen der Computertechnologie zurückgeht, 
 In LiaScript kann ASCII-Art auf kreative Weise eingesetzt werden, um visuelle Darstellungen direkt in Texten zu integrieren.
 Dies kann besonders nützlich sein, um beispielsweise einfache Diagramme, Skizzen oder Symbole zu erstellen, ohne dass externe Bilddateien erforderlich sind.
 
-```` markdown @embed
+```` markdown @embed.edit.style(height: 750px; min-width: 100%; border: 1px black solid)
 # ASCII-Art
 
 <!-- style="height: 60vh" -->
@@ -627,7 +656,7 @@ Natürlich können LiaScript und Markdown auch nahtlos mit ASCII-Grafiken kombin
 Dadurch lassen sich interessante Kombinationen mit Quizzen generieren, aber auch Animationen.
 Die LiaScript-Elemente müssen nur mit Hochkommas "markiert" werden:
 
-```` markdown @embedWithStyle(height: 420px; min-width: 100%; border: 1px black solid")
+```` markdown @embed.preview.style(height: 650px; min-width: 100%; border: 1px black solid)
 # ASCII-Art & Quizze
 
 <!-- data-show-partial-solution -->
@@ -650,7 +679,7 @@ Die LiaScript-Elemente müssen nur mit Hochkommas "markiert" werden:
 Datensätze in Tabellen werden automatisch analysiert und anhand verschiedener Regeln wird versucht die beste Darstellung zu finden.
 Wechselt auf die Tabellenansicht, sortiert die Spalten um und beobachtet, wie sich die Visualisierung anpasst.
 
-``` mardown @embed
+``` mardown @embed.preview.style(height: 750px; min-width: 100%; border: 1px black solid)
 ## Tabellen
 
 <!-- data-show -->
@@ -666,7 +695,7 @@ Wechselt auf die Tabellenansicht, sortiert die Spalten um und beobachtet, wie si
 Wer direkt drauflos zeichnen will, kann auch dies tun und einfache Diagramme und Kurvenverläufe zeichnen.
 Wenn es wie ein Diagramm aussieht, dann ist es wohl auch ein Diagramm ...
 
-``` markdown @embed
+``` markdown @embed.style(height: 610px; min-width: 100%; border: 1px black solid)
 ### ASCII-Art-Diagramme
 
                                 Multiline
@@ -696,7 +725,7 @@ Für komplexere oder umfangreichere Formeln, die eine eigene Zeile beanspruchen 
 Hierbei wird der mathematische Ausdruck zwischen zwei doppelten Dollarzeichen (`$$...$$`) eingefügt.
 Die Formel wird dann zentriert und deutlich hervorgehoben.
 
-```markdown @embed
+```markdown @embed.style(height: 400px; min-width: 100%; border: 1px black solid)
 # Formeln
 
 Die Formel für die Berechnung der Fläche eines Kreises ist $A = \pi r^2$.
@@ -729,10 +758,12 @@ Wie sieht das nun speziell aus?
 
 Im einfachsten Fall können Berechnungen, die man nicht selbst durchführen möchte, innerhalb eines solchen Skripts ausgeführt werden:
 
-``` markdown @embed
+``` markdown @embed.style(height: 300px; min-width: 100%; border: 1px black solid)
 # Einfache Berechnungen
 
-Die Wurzel aus 1122.25 ist <script>Math.sqrt(1122.25)</script>.
+Die Wurzel aus 1122.25 ist
+<script>Math.sqrt(1122.25)</script>
+.
 ```
 
 Das ist noch nichts Besonderes.
@@ -740,7 +771,7 @@ Wenn wir uns nun aber vorstellen, wie viele Lehrmaterialien aktuelle Klima-, Wir
 
 Ein einfaches Beispiel hierfür ist die Kalenderberechnung:
 
-``` markdown @embed
+``` markdown @embed.style(height: 500px; min-width: 100%; border: 1px black solid)
 # Eine Militärische Spezialoperation
 
 Russland startete seinen Überfall auf die Ukraine
@@ -775,7 +806,7 @@ Innerhalb von LiaScript wird hier ein Verarbeitungsgraph erzeugt, in dem Skripte
 
 Verändert die Werte der Schieberegler und schaut euch die Veränderungen im Diagramm an.
 
-``` markdown @embed
+``` markdown @embed.preview.style(height: 860px; min-width: 100%; border: 1px black solid)
 # Potenzfunktionen
 
 $a =$ <script modify="false" input="range" step="1"   min="-1"  max="6"  value="2" output="a" input-always-active>@input</script>,\
