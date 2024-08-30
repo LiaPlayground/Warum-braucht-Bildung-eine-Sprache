@@ -454,7 +454,19 @@ Hierfür wird einfach in einem HTML-Kommentar zu Beginn des Dokuments ein Befehl
 Wie in anderen Programmiersprachen auch, so können diese auch in LiaScript parametrisiert werden.
 Hierbei werden im Macro-Körper, die zu ersetzenden Stellen mit `@0..9` gekennzeichnet:
 
-<iframe style="height: 350px; min-width: 100%; border: 1px black solid" src="https://liascript.github.io/LiveEditor/?/embed/code/H4sIAAAAAAAAA03OQQrCMBAF0P2cYqwbC03UbakhC49QD1CaIQZCUiYD0bu582LGjbj9/z/4004psDWsdwl+xKlsS8Iiz0iXbs0x84j21Bl7no7fyoBSBmCPcxCK8JMHJjdcAxVinOkhWAM75CzoFvZU2jhKD02rP+SZKA235LAFWIkdoef3qz2gkLTW/Qcpmwc0nwAAAA=="></iframe>
+```` markdown @embed.style(height: 350px; min-width: 100%; border: 1px black solid)
+<!--
+@wichtig: <span style="color: @0">@1</span>
+-->
+
+# Titel
+
+@wichtig(red,Dieser Text wird rot dargestellt)
+
+---
+
+@wichtig(green,Und ich werde grün sein...)
+````
 
 #### Importieren von Erweiterungen
 
