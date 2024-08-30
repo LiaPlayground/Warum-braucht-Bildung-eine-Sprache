@@ -56,7 +56,7 @@ if (embed=="preview" || embed=="edit") {
   embed = ""
 }
 
-'<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
+"HTML: " + '<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
 </script>
 @end
 
