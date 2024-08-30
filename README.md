@@ -2,7 +2,7 @@
 
 author:  André Dietrich; Sebastian Zug
 email:   LiaScript@web.de
-version: 0.0.1
+version: 0.0.2
 
 language: de
 
@@ -56,7 +56,7 @@ if (embed=="preview" || embed=="edit") {
   embed = ""
 }
 
-"HTML: " + '<iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
+'HTML: <iframe loading="lazy" style="@1" src="https://liascript.github.io/LiveEditor/?/embed/code/' + embed + code + '"></iframe>'
 </script>
 @end
 
