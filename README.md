@@ -784,7 +784,7 @@ Wenn wir uns nun aber vorstellen, wie viele Lehrmaterialien aktuelle Klima-, Wir
 Ein einfaches Beispiel hierfür ist die Kalenderberechnung:
 
 ``` markdown @embed.style(height: 500px; min-width: 100%; border: 1px black solid)
-# Eine Militärische Spezialoperation
+# Eine Militärische "Spezial"-Operation
 
 Russland startete seinen Überfall auf die Ukraine
 <script format="relativetime" unit="day" locale="de">
